@@ -1,0 +1,19 @@
+name = "jmc-blood-bond"
+compatibility_date = "2024-09-23"
+pages_build_output_dir = "dist"
+
+[vars]
+# Public/non-sensitive runtime variables can be placed here
+ENVIRONMENT = "production"
+
+# Cron triggers: Run daily at 06:00 UTC (12:00 PM BST / Bangladesh Standard Time)
+# to evaluate donors reaching the 90-day eligibility milestone and queue reminders
+[triggers]
+crons = ["0 6 * * *"]
+
+# Secret variables to be set via `wrangler pages secret put <KEY>` or Cloudflare Pages Dashboard:
+# - SUPABASE_URL: "https://your-project.supabase.co"
+# - SUPABASE_SERVICE_ROLE_KEY: "eyJhbGciOi..." (CRITICAL: NEVER expose in frontend!)
+# - CLOUDFLARE_TURNSTILE_SECRET_KEY: "0x4AAAAAA..."
+# - CRON_SECRET: "your-random-cron-secret-token"
+
